@@ -7,7 +7,7 @@ st.title("Personal Finance Chatbot")
 #display a subheader
 st.subheader("Personal finance, personalized.")
 #display an image
-st.image("/content/money.png")
+st.image("money.png")
 
 #create two tabs and add elements to each
 asktab, learntab = st.tabs(["Ask", "Learn"])
