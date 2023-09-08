@@ -27,6 +27,7 @@ learntab.video("https://www.ted.com/talks/oliver_elfenbaum_how_does_the_stock_ma
 openai.api_key = st.secrets["database"]["OPENAI_API_KEY"]
 st.write(openai.api_key)
 
+message_placeholder = st.empty()
 full_response = ""
 
 #Set a default model
@@ -54,8 +55,6 @@ if prompt := st.chat_input("Ask any finance question"):
     with st.chat_message("user"):
         st.markdown(prompt)
      #Display assistant response in chat message container
-    with st.chat_message("assistant"):
-        message_placeholder = st.empty()
 
 for response in openai.ChatCompletion.create(
         model=st.session_state["openai_model"],
