@@ -20,12 +20,11 @@ with learntab.expander("Learn more about stocks:"):
         more stuff about investing, ...
     """)
 
-learntab.video("https://www.ted.com/talks/oliver_elfenbaum_how_does_the_stock_market_work?language=en", format="video/mp4")
+learntab.video("https://www.ted.com/talks/oliver_elfenbaum_how_does_the_stock_market_work?language=en", format="video/mp3")
 
 
 
 openai.api_key = st.secrets["database"]["OPENAI_API_KEY"]
-st.write(openai.api_key)
 
 message_placeholder = st.empty()
 full_response = ""
