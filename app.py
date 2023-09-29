@@ -9,6 +9,7 @@ st.subheader("Personal finance, personalized.")
 #display an image
 st.image("money.png")
 
+
 #create two tabs and add elements to each
 asktab, learntab = st.tabs(["Ask", "Learn"])
 asktab.write("**This is a chatbot. Ask it anything!**")
