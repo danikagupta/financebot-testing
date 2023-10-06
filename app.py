@@ -55,7 +55,7 @@ if prompt := st.chat_input("Ask any finance question"):
         st.markdown(prompt)
      #Display assistant response in chat message container
 
-for response in openai.ChatCompletion.create(
+    for response in openai.ChatCompletion.create(
         model=st.session_state["openai_model"],
         messages=[{"role": m["role"], "content": m["content"]} for m in st.session_state.messages],
         stream=True,
@@ -63,4 +63,4 @@ for response in openai.ChatCompletion.create(
         full_response += response.choices[0].delta.get("content", "")
         message_placeholder.markdown(full_response + "▌")
         message_placeholder.markdown(full_response)
-st.session_state.messages.append({"role": "assistant", "content": full_response})
+    st.session_state.messages.append({"role": "assistant", "content": full_response})
