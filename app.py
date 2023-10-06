@@ -41,20 +41,46 @@ if "messages" not in st.session_state:
 
 # Display chat messages from history on app rerun
 for message in st.session_state.messages:
-    with st.chat_message(message["role"]):
-        st.markdown(message["content"])
+    with asktab.chat_message(message["role"]):
+        asktab.markdown(message["content"])
 
-st.chat_message("Ask any finance question")
+asktab.chat_message("Ask any finance question")
 
 # Accept user input
 if prompt := st.chat_input("Ask any finance question"):
    #  Add user message to chat history
     st.session_state.messages.append({"role": "user", "content": prompt})
     # Display user message in chat message container
-    with st.chat_message("user"):
-        st.markdown(prompt)
+    with asktab.chat_message("user"):
+        asktab.markdown(prompt)
      #Display assistant response in chat message container
 
+    with st.chat_message("assistant"):
+        for response in openai.ChatCompletion.create(
+        model=st.session_state["openai_model"],
+        messages=[{"role": m["role"], "content": m["content"]} for m in st.session_state.messages],
+        stream=True,
+    ):
+        full_response += response.choices[0].delta.get("content", "")
+        message_placeholder.markdown(full_response + "▌")
+        message_placeholder.markdown(full_response)
+    st.session_state.messages.append({"role": "assistant", "content": full_response})
+    
+    message_placeholder = st.empty()
+        full_response = ""
+        for response in openai.ChatCompetion.create(
+            model="gpt-3.5-turbo",
+            messages=[
+                {"role": m["role"], "content": m["content"]}
+                for m in st.session_state.messages
+            ],
+            stream=True,
+        ):
+            full_response += response.choices[0].delta.get("content", "")
+            message_placeholder.markdown(full_response + "▌")
+        message_placeholder.markdown(full_response)
+    st.session_state.messages.append({"role": "assistant", "content": full_response})
+    
     for response in openai.ChatCompletion.create(
         model=st.session_state["openai_model"],
         messages=[{"role": m["role"], "content": m["content"]} for m in st.session_state.messages],
