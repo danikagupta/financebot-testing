@@ -4,8 +4,6 @@ import openai
 
 #title the page
 st.title("Personal Finance Chatbot")
-#display a subheader
-st.subheader("Personal finance, personalized.")
 #display an image
 st.image("Personalized.png")
 
