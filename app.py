@@ -4,10 +4,8 @@ import openai
 
 #title the page
 st.title("Personal Finance Chatbot")
-#display a subheader
-st.subheader("Personal finance, personalized.")
 #display an image
-st.image("money.png")
+st.image("Personalized.png")
 
 
 #create two tabs and add elements to each
