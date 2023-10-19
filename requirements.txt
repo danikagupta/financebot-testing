@@ -1,1 +1,12 @@
 openai
+altair
+numpy
+pandas
+pydeck
+streamlit
+PyPDF2
+pinecone-client
+langchain
+sendgrid
+markdown
+mistune
