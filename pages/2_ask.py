@@ -8,6 +8,7 @@ import streamlit as st
 import os
 
 st.markdown("# Your financial mentor")
+avatars={"system":"💻🧠","user":"🧑‍💼","assistant":"🎓"}
 
 os.environ['PINECONE_API_KEY']='09363b67-7ea8-43a6-b6d2-2990d0ebbee6'
 os.environ['PINECONE_API_ENV']='gcp-starter'
@@ -49,7 +50,8 @@ if "messages" not in st.session_state:
 
 for message in st.session_state.messages:
     if message["role"] != "system":
-        with st.chat_message(message["role"]):
+        avatar=avatars[message["role"]]
+        with st.chat_message(message["role"],avatar=avatar):
             st.markdown(message["content"])
 
 if prompt := st.chat_input("Ask your question here!"):
@@ -63,7 +65,7 @@ The user's question was: {prompt}
     st.session_state.messages.append({"role": "user", "content": prompt})
     with st.chat_message("user"):
         st.markdown(prompt)
-    with st.chat_message("assistant"):
+    with st.chat_message("assistant", avatar=avatars["assistant"]):
         message_placeholder = st.empty()
         full_response = ""
         

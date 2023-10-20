@@ -7,7 +7,6 @@ import openai
 #display an image
 st.image("Personalized.png")
 
-
 #create two tabs and add elements to each
 # asktab, learntab = st.tabs(["Ask", "Learn"])
 # asktab.write("**This is a chatbot. Ask it anything!**")
