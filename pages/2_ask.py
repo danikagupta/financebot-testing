@@ -7,8 +7,12 @@ import pinecone
 import streamlit as st
 import os
 
-st.markdown("# Your financial mentor")
-avatars={"system":"💻🧠","user":"🧑‍💼","assistant":"🎓"}
+(column1,column2)=st.columns([3,7])
+column1.image("Personalized.png", width=100)
+column2.title("Your financial mentor")
+
+
+avatars={"system":"💻","user":"🤔","assistant":"💵"}
 
 os.environ['PINECONE_API_KEY']='09363b67-7ea8-43a6-b6d2-2990d0ebbee6'
 os.environ['PINECONE_API_ENV']='gcp-starter'

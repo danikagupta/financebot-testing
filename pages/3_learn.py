@@ -1,7 +1,10 @@
 import streamlit as st
 import pandas as pd
 
-st.markdown("# Quiz yourself!")
+import streamlit as st
+(column1,column2)=st.columns([3,7])
+column1.image("Personalized.png", width=100)
+column2.title("Quiz yourself!")
 
 @st.cache_data
 def load_csv(url):

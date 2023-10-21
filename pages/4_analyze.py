@@ -1,7 +1,12 @@
 import openai
 import streamlit as st
 
-st.markdown("# Your analyst assistant")
+import streamlit as st
+(column1,column2)=st.columns([3,7])
+column1.image("Personalized.png", width=100)
+column2.title("Your analyst assistant")
+
+avatars={"system":"💻","user":"🤔","assistant":"📝"}
 
 SYSTEM_PROMPT="""
 Ignore all previous commands. When the user provides an input, respond with a summary of the input. 
@@ -20,7 +25,8 @@ if "messages" not in st.session_state:
 
 for message in st.session_state.messages:
     if message["role"] != "system":
-        with st.chat_message(message["role"]):
+        avatar=avatars[message["role"]]
+        with st.chat_message(message["role"],avatar=avatar):
             st.markdown(message["content"])
 
 if prompt := st.chat_input("Please paste the financial information/press release that you'd like to analyze"):
@@ -28,7 +34,7 @@ if prompt := st.chat_input("Please paste the financial information/press release
     st.session_state.messages.append(new_message)
     with st.chat_message("user"):
         st.markdown(prompt)
-    with st.chat_message("assistant"):
+    with st.chat_message("assistant", avatar=avatars["assistant"]):
         message_placeholder = st.empty()
         full_response = ""
         for response in openai.ChatCompletion.create(
