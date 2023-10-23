@@ -83,6 +83,6 @@ The user's question was: {prompt}
             full_response += response.choices[0].delta.get("content", "")
             message_placeholder.markdown(full_response + "▌")
         message_placeholder.markdown(full_response)
-    with st.sidebar.expander("Retrieval context provided to GPT-3"):
-        st.write(f"{retrieved_content}")
+    #with st.sidebar.expander("Retrieval context provided to GPT-3"):
+     #   st.write(f"{retrieved_content}")
     st.session_state.messages.append({"role": "assistant", "content": full_response})
