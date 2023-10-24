@@ -1,4 +1,10 @@
 import streamlit as st
+
+st.set_page_config(
+    page_title="About | Money Matters",
+    page_icon="Personalized.png",
+)
+
 (column1,column2)=st.columns([3,7])
 column1.image("Personalized.png", width=100)
 column2.title("About the website")

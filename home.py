@@ -2,6 +2,11 @@ import streamlit as st
 import pandas as pd
 import openai
 
+st.set_page_config(
+    page_title="Home | Money Matters",
+    page_icon="Personalized.png",
+)
+
 #title the page
 #st.title("Money Matters!")
 #display an image
