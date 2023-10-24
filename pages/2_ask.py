@@ -19,11 +19,11 @@ column2.title("Your financial mentor")
 
 avatars={"system":"💻","user":"🤔","assistant":"💵"}
 
-os.environ['PINECONE_API_KEY']='09363b67-7ea8-43a6-b6d2-2990d0ebbee6'
+
 os.environ['PINECONE_API_ENV']='gcp-starter'
 os.environ['PINECONE_INDEX_NAME']='pinecone-index'
 
-PINECONE_API_KEY=os.environ['PINECONE_API_KEY']
+PINECONE_API_KEY=st.secrets['PINECONE_API_KEY']
 PINECONE_API_ENV=os.environ['PINECONE_API_ENV']
 PINECONE_INDEX_NAME=os.environ['PINECONE_INDEX_NAME']
 openai.api_key=st.secrets['OPENAI_API_KEY']
