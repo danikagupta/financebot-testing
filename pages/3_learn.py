@@ -1,8 +1,6 @@
 import streamlit as st
 import pandas as pd
 
-import streamlit as st
-
 st.set_page_config(
     page_title="Learn | Money Matters",
     page_icon="Personalized.png",

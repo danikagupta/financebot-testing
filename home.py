@@ -12,6 +12,18 @@ st.set_page_config(
 #display an image
 st.image("Personalized.png")
 
+st.title("About the website")
+st.write("""
+         **:green[Welcome to Money Matters!]** Here, we hope to help you take charge of your financial destiny 
+         by learning about personal finance. 
+         
+         - With the **:green[ask]** page, you can ask our Chat-GPT-based AI any burning finance questions you have.
+         - With the **:green[learn]** page, you can quiz yourself on personal finance basics.
+         - With the **:green[analyze]** page, you can paste in any company press release or other article and we will summarize it and assess whether or not the company would be a good investment right now.
+         
+         We have augmented our AI using resources from Khan Academy, the Federal Reserve Bank of St. Louis, TED-Ed, DardenMBA, PBS, and moneyinstructor.com, and *greatly appreciate* being able to build on their great work.
+         """)
+
 #create two tabs and add elements to each
 # asktab, learntab = st.tabs(["Ask", "Learn"])
 # asktab.write("**This is a chatbot. Ask it anything!**")
