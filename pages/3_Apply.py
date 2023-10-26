@@ -2,7 +2,7 @@ import streamlit as st
 import pandas as pd
 
 st.set_page_config(
-    page_title="Learn | Money Matters",
+    page_title="Apply | Money Matters",
     page_icon="Personalized.png",
 )
 

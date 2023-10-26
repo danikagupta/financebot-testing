@@ -1,13 +1,13 @@
 import streamlit as st
 
 st.set_page_config(
-    page_title="Definitions | Money Matters",
+    page_title="Learn | Money Matters",
     page_icon="Personalized.png",
 )
 
 (column1,column2)=st.columns([3,7])
 column1.image("Personalized.png", width=100)
-column2.title("Definitions")
+column2.title("Learn basic definitions")
 #st.subheader("Learn basic personal finance terms and gain a jumping-off point for the ask page")
 
 st.write("""Savings: Money set away, perhaps to compound over time, in order to be retrieved later. Some examples of usage include retirement savings, an emergency fund in case of a sudden financial need, and saving up for a big purchase.
