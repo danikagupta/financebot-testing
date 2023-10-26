@@ -11,10 +11,10 @@ column2.title("Learn basic definitions")
 #st.subheader("Learn basic personal finance terms and gain a jumping-off point for the ask page")
 
 st.write("""Savings: Money set away, perhaps to compound over time, in order to be retrieved later. Some examples of usage include retirement savings, an emergency fund in case of a sudden financial need, and saving up for a big purchase.
-/n Investing:To put money into an asset (such as stocks, bonds, real estate, or gold) with the expectation that it will grow in the future.
-/n Credit: The ability to make a purchase and pay for it later.
-/n Debt: Money which is owed to someone.
-/n Loans: Money which is given, typically by a bank, with the expectation of later repayment.
-/n Interest: Additional money which you pay to borrow money.
-/n Budgeting: Creating a plan to allot money.
+    Investing:To put money into an asset (such as stocks, bonds, real estate, or gold) with the expectation that it will grow in the future.
+    Credit: The ability to make a purchase and pay for it later.
+    Debt: Money which is owed to someone.
+    Loans: Money which is given, typically by a bank, with the expectation of later repayment.
+    Interest: Additional money which you pay to borrow money.
+    Budgeting: Creating a plan to allot money.
 """)
