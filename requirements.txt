@@ -10,3 +10,4 @@ langchain
 sendgrid
 markdown
 mistune
+streamlit_option_menu

@@ -22,7 +22,7 @@ st.write("""
          - With the **:green[apply]** page, you can quiz yourself on personal finance basics. These help you figure out where there may be gaps in your knowledge.
          - With the **:green[analyze]** page, you can paste in any company press release or other article and we will summarize it and assess whether or not the company would be a good investment right now.
          
-         We have augmented our AI using resources from Khan Academy, the Federal Reserve Bank of St. Louis, TED-Ed, DardenMBA, PBS, and moneyinstructor.com, and *greatly appreciate* being able to build on their great work.
+         We have augmented our AI using a set of carefully curated resources from reputable sources such as Khan Academy, the Federal Reserve Bank of St. Louis, TED-Ed, DardenMBA, PBS, and moneyinstructor.com, and *greatly appreciate* being able to build on their great work.
          """)
 
 

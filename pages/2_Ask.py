@@ -15,7 +15,12 @@ st.set_page_config(
 (column1,column2)=st.columns([3,7])
 column1.image("Personalized.png", width=100)
 column2.title("Your financial mentor")
-
+st.markdown("""
+Please enter a question about personal finance. You can tailor your question to be more specific to your needs.
+            \n Here are two questions from recent users:
+            \n * "how do i become able to start renting an apartment"
+            \n * "i am a 24 year old single mother of a toddler. i just finished my masters degree in anthropology but now fear that it may not be conducive to getting a stable job or income. right now i'm working as a waitress and share an apartment's rent with two friends. what are possible steps for me to take care of my daughter, find a good job, and at some point rent out my own apartment for just me and my daughter? please focus on financial advice"
+""")
 
 avatars={"system":"💻","user":"🤔","assistant":"💵"}
 

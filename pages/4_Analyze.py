@@ -1,8 +1,6 @@
 import openai
 import streamlit as st
 
-import streamlit as st
-
 st.set_page_config(
     page_title="Analyze | Money Matters",
     page_icon="Personalized.png",
@@ -11,6 +9,9 @@ st.set_page_config(
 (column1,column2)=st.columns([3,7])
 column1.image("Personalized.png", width=100)
 column2.title("Your analyst assistant")
+st.markdown("""
+Please enter a news article that you would like to analyze and understand the investing ramifications of.
+""")
 
 avatars={"system":"💻","user":"🤔","assistant":"📝"}
 
@@ -44,7 +45,7 @@ if prompt := st.chat_input("Please paste the financial information/press release
         message_placeholder = st.empty()
         full_response = ""
         for response in openai.ChatCompletion.create(
-            model="gpt-3.5-turbo-16k",
+            model="gpt-4",
             messages=[{"role": m["role"], "content": m["content"]}
                       for m in st.session_state.messages], stream=True):
             full_response += response.choices[0].delta.get("content", "")

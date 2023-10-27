@@ -1,5 +1,14 @@
 import streamlit as st
 import pandas as pd
+from streamlit_option_menu import option_menu
+
+def on_change_menu(menu_ma):
+    print(f"Passed parameter: {menu_ma}")
+    key="menu_main"
+    selection = st.session_state[key]
+    del st.session_state["question"]
+    print(f"On-change-menu: Selection changed to {selection}")
+    st.session_state["category"]=selection
 
 st.set_page_config(
     page_title="Apply | Money Matters",
@@ -57,6 +66,14 @@ slot1=st.container()
 slot3=st.container()
 slot2=st.container()
 
+with st.sidebar:
+  menu = option_menu(None, 
+                      [ "Budgeting", "Investing", "Saving", "Debt", "Credit", "Economics","ALL"],
+                      icons=['house', 'list-task','piggy-bank','arrow-down','wallet','bank','house'], 
+                      menu_icon="cast",                       default_index=6,on_change=on_change_menu,key='menu_main')
+if "category" not in st.session_state:
+  st.session_state["category"]="ALL"
+
 #print(f"++++START{st.__version__}")
 
 if slot2.button("Next question"):
@@ -66,6 +83,8 @@ if slot2.button("Next question"):
 if "question" not in st.session_state:
   print(f"\n*** Getting next question \n")
   df=load_csv(st.secrets["QUIZ_CSV"])
+  if st.session_state.category != "ALL":
+    df=df[df['Category'] == st.session_state.category]
   row=df.sample()
   dict_row=row.to_dict(orient='list')
   st.session_state["question"]=dict_row
