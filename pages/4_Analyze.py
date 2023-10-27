@@ -10,7 +10,12 @@ st.set_page_config(
 column1.image("Personalized.png", width=100)
 column2.title("Your analyst assistant")
 st.markdown("""
-Please enter a news article that you would like to analyze and understand the investing ramifications of.
+Please enter a news article that you would like to analyze and understand the investing ramifications of.          
+\n For example, this article from Reuters about NVIDIA: 
+\n Chip designer Nvidia (NVDA.O) said new U.S. export curbs on the sale of its high-end artificial intelligence chips to China came into effect on Monday as regulators advanced the deadline. 
+\n The restrictions were supposed to come into play 30 days from Oct. 17 when the Biden administration unveiled measures to stop countries, including China, Iran and Russia, from receiving advanced AI. Nvidia does not expect a near-term impact on its earnings from the move, it disclosed in a filing on Tuesday, but did not say why the U.S. government had accelerated the timing. 
+\n Advanced Micro Devices (AMD.O), also impacted by the curbs, did not immediately respond to Reuters' requests for comment, while the U.S. Department of Commerce declined to comment. Intel (INTC.O), which began selling its Gaudi 2 chips in China in July, said it was "reviewing the regulations and assessing the potential impact." 
+\n The restrictions bar exports of Nvidia's modified advanced AI chips A800 and H800 - both of which were created for the Chinese market to comply with previous export rules. The Nvidia A100, H100 and L40S chips are also impacted by the curbs.
 """)
 
 avatars={"system":"💻","user":"🤔","assistant":"📝"}
