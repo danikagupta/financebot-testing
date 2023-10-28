@@ -20,7 +20,7 @@ Please enter a question about personal finance. You can tailor your question to 
             \n Here are some questions from recent users which show different angles you can ask from:
             \n * "I'm a college student with no steady income but I have $1000 in my bank account. Can you create me a savings plan for the next 4 years?"
             \n * "How do I become able to start renting an apartment?"
-            \n * "I am a 24 year old single mother of a toddler. I just finished my masters degree in anthropology. Right now I'm working as a waitress and share an apartment's rent with two friends. What are possible steps for me to take care of my daughter, find a good job, and at some point rent my own apartment for just me and my daughter? Please focus on financial advice."
+            \n * "I am a 24 year old single mother of a toddler. I just finished my Master's degree in anthropology. Right now I'm working as a waitress and share an apartment's rent with two friends. What are possible steps for me to take care of my daughter, find a good job, and at some point rent my own apartment for just me and my daughter? Please focus on financial advice."
 """)
 
 avatars={"system":"💻","user":"🤔","assistant":"💵"}

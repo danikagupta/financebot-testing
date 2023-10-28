@@ -1,5 +1,0 @@
-#[theme]
-#base="dark"
-#primaryColor="#3c7723"
-#font="serif"
-#st.set_option('theme.primaryColor', '#3c7723')
