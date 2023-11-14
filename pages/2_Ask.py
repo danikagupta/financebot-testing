@@ -7,6 +7,9 @@ import pinecone
 import streamlit as st
 import os
 
+from anthropic import Anthropic, HUMAN_PROMPT, AI_PROMPT
+
+
 st.set_page_config(
     page_title="Ask | Money Matters",
     page_icon="Personalized.png",
@@ -25,6 +28,7 @@ Please enter a question about personal finance. You can tailor your question to 
 
 avatars={"system":"💻","user":"🤔","assistant":"💵"}
 
+anthropic = Anthropic()
 
 os.environ['PINECONE_API_ENV']='gcp-starter'
 os.environ['PINECONE_INDEX_NAME']='pinecone-index'
@@ -32,6 +36,7 @@ os.environ['PINECONE_INDEX_NAME']='pinecone-index'
 PINECONE_API_KEY=st.secrets['PINECONE_API_KEY']
 PINECONE_API_ENV=os.environ['PINECONE_API_ENV']
 PINECONE_INDEX_NAME=os.environ['PINECONE_INDEX_NAME']
+
 openai.api_key=st.secrets['OPENAI_API_KEY']
 
 def augmented_content(inp):
@@ -88,13 +93,22 @@ The user's question was: {prompt}
         messageList=[{"role": m["role"], "content": m["content"]}
                       for m in st.session_state.messages]
         messageList.append({"role": "user", "content": prompt_guidance})
-        
-        for response in openai.ChatCompletion.create(
-            model="gpt-3.5-turbo",
-            messages=messageList, stream=True):
-            full_response += response.choices[0].delta.get("content", "")
-            message_placeholder.markdown(full_response + "▌")
+        print(f"LLM Message List: {messageList}")
+
+        completion = anthropic.completions.create(
+            model="claude-2",
+            max_tokens_to_sample=300,
+            prompt=f"{HUMAN_PROMPT} {prompt} {AI_PROMPT}",
+        )
+        full_response=completion.completion
         message_placeholder.markdown(full_response)
+        
+        #for response in openai.ChatCompletion.create(
+        #    model="gpt-3.5-turbo",
+        #    messages=messageList, stream=True):
+        #    full_response += response.choices[0].delta.get("content", "")
+        #    message_placeholder.markdown(full_response + "▌")
+        #message_placeholder.markdown(full_response)
     #with st.sidebar.expander("Retrieval context provided to GPT-3"):
      #   st.write(f"{retrieved_content}")
     st.session_state.messages.append({"role": "assistant", "content": full_response})
