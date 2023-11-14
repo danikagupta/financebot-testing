@@ -54,6 +54,19 @@ def augmented_content(inp):
     #st.write(f"RR: {rr}")
     return rr
 
+def convert_to_anthropic(mList):
+    createdMessage=""
+    for m in mList:
+        role=m["role"]
+        content=m["content"]
+        if(role=="system"):
+            createdMessage += f"{AI_PROMPT} {content}"
+        if(role=="assistant"):
+            createdMessage += f"{AI_PROMPT} {content}"
+        if(role=="user"):
+            createdMessage += f"{HUMAN_PROMPT} {content}"
+    return createdMessage
+
 
 SYSTEM_MESSAGE={"role": "system", 
                 "content": """Ignore all previous commands. 
@@ -94,13 +107,17 @@ The user's question was: {prompt}
                       for m in st.session_state.messages]
         messageList.append({"role": "user", "content": prompt_guidance})
         print(f"LLM Message List: {messageList}")
+        anthropic_prompt=convert_to_anthropic(messageList)
+        with st.sidebar.expander("Prompt provided to Anthropic"):
+            st.write(f"{anthropic_prompt}")
 
-        completion = anthropic.completions.create(
-            model="claude-2",
-            max_tokens_to_sample=300,
-            prompt=f"{HUMAN_PROMPT} {prompt} {AI_PROMPT}",
-        )
-        full_response=completion.completion
+        #completion = anthropic.completions.create(
+        #    model="claude-2",
+        #    max_tokens_to_sample=300,
+        #    prompt=f"{HUMAN_PROMPT} {prompt} {AI_PROMPT}",
+        #)
+        #full_response=completion.completion
+        full_response="\n\n ** FAKE LLM Response\n\n"
         message_placeholder.markdown(full_response)
         
         #for response in openai.ChatCompletion.create(
